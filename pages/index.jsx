@@ -9,7 +9,6 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
 `;
 
 const ContactButton = styled.button`
@@ -28,13 +27,64 @@ const ContactButton = styled.button`
   }
 `;
 
+const Nav = styled.nav`
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #000;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
+const links = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Products",
+    href: "/products",
+  },
+  {
+    name: "Documentation",
+    href: "/documentation",
+  },
+  {
+    name: "Pricing",
+    href: "/pricing",
+  },
+];
+
 const IssuesPage = () => {
   return (
     <div>
       <Header>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/logo-large.svg" alt="Prolog logo" />
-        <a href={Routes.projects}>Dashboard</a>
+        <Nav>
+          {links.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.name}
+            </a>
+          ))}
+        </Nav>
+
+        <a
+          style={{
+            background: "#6941c6",
+            padding: "1rem",
+            color: "#fff",
+            borderRadius: 5,
+            textDecoration: "none",
+          }}
+          href={Routes.projects}
+        >
+          Open Dashboard
+        </a>
       </Header>
       <ContactButton
         onClick={() =>
