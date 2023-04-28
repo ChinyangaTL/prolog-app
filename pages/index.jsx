@@ -124,6 +124,18 @@ const IssuesPage = () => {
       {isModalOpen && (
         <ModalCard>
           <h1>Modal</h1>
+          <div>
+            <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+            <button
+              onClick={() =>
+                window.open(
+                  "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
+                )
+              }
+            >
+              Open Email App
+            </button>
+          </div>
         </ModalCard>
       )}
     </div>
