@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Routes } from "@config/routes";
 
@@ -59,9 +60,39 @@ const links = [
   },
 ];
 
+const ModalCard = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: #f00;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+`;
+
+const modalOpenStyles = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  zIndex: 1040,
+  width: "100vw",
+  height: "100vh",
+  backgroundColor: "rgba(0, 0, 0, 0.4)",
+  backdropFilter: "blur(15px)",
+};
+
 const IssuesPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <div>
+    <div
+      style={isModalOpen ? modalOpenStyles : { height: "100vh" }}
+      onClick={() => isModalOpen && setIsModalOpen(false)}
+    >
       <Header>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/logo-large.svg" alt="Prolog logo" />
@@ -86,16 +117,15 @@ const IssuesPage = () => {
           Open Dashboard
         </a>
       </Header>
-      <ContactButton
-        onClick={() =>
-          alert(
-            "Implement this in Challenge 2 - Modal:\n\nhttps://profy.dev/rjs-challenge-modal"
-          )
-        }
-      >
+      <ContactButton onClick={() => setIsModalOpen(true)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/message.svg" alt="Contact" />
       </ContactButton>
+      {isModalOpen && (
+        <ModalCard>
+          <h1>Modal</h1>
+        </ModalCard>
+      )}
     </div>
   );
 };
