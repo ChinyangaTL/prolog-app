@@ -1,3 +1,5 @@
+Didn't focus on styling or "clean code" principles. Just saw this online and thought it was an interesting approach to learning, so I just did it to stretch my react muscles again.
+
 This repository is part of the [React Job Simulator](https://profy.dev) where you work in a professional dev environment with advanced tooling and workflows. You implement tasks based on designs starting from small bug fixes to full-blown features. Basically, you learn a lot of the things hands-on that you usually only experience once you joined a professional React team.
 
 ## The Application
